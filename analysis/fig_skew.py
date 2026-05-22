@@ -104,7 +104,7 @@ def plot(results_path, save_path=None):
         print(f"    interval = [{row['DI_lo']:.3f}, {row['DI_hi']:.3f}]")
     print()
 
-    fig, axes = plt.subplots(1, 2, figsize=(11, 4.5))
+    fig, axes = plt.subplots(2, 1, figsize=(5, 11))
     plt.subplots_adjust(wspace=0.38)
 
     for ax, (row, title) in zip(axes, [(low, "Low skew"), (high, "High skew")]):
@@ -116,7 +116,7 @@ def plot(results_path, save_path=None):
 
         if vals is not None:
             sns.histplot(vals, ax=ax, color=FS_COLOR, alpha=0.55,
-                         stat="density", bins=30, 
+                         stat="probability", bins=30, 
                          line_kws={"lw": 2, "color": FS_COLOR})
 
         ax.axvline(true, color=GT_COLOR,   lw=2.3, zorder=5,
@@ -127,7 +127,7 @@ def plot(results_path, save_path=None):
                    label=f"Midpoint = {mid:.3f}  (|err| = {abs(mid-true):.3f})")
 
         ax.set_xlabel("Disparate Impact (DI)", fontsize=11)
-        ax.set_ylabel("Density" if ax is axes[0] else "", fontsize=11)
+        ax.set_ylabel("Probability" if ax is axes[0] else "", fontsize=11)
         ax.set_title(f"{title} ",
                      fontsize=11, fontweight="bold")
 
@@ -140,7 +140,7 @@ def plot(results_path, save_path=None):
                       label="Interval midpoint"),
     ], fontsize=10, loc="lower center", ncol=4, frameon=False,
        bbox_to_anchor=(0.5, -0.05))
-    plt.subplots_adjust(bottom=0.13)
+    plt.subplots_adjust(bottom=0.03)
 
     if save_path:
         os.makedirs(os.path.dirname(save_path) or ".", exist_ok=True)
