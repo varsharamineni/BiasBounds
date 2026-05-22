@@ -83,7 +83,7 @@ def fig1_accuracy(df: pd.DataFrame, save_path: str):
     import matplotlib.pyplot as plt
     import seaborn as sns
 
-    fig, axes = plt.subplots(2, 1, figsize=(6, 8))
+    fig, axes = plt.subplots(2, 1, figsize=(6, 6))
 
     COLORS = {
         "DI": "steelblue",   # muted blue
