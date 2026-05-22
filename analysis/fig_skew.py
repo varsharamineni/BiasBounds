@@ -104,7 +104,7 @@ def plot(results_path, save_path=None):
         print(f"    interval = [{row['DI_lo']:.3f}, {row['DI_hi']:.3f}]")
     print()
 
-    fig, axes = plt.subplots(2, 1, figsize=(5, 11))
+    fig, axes = plt.subplots(2, 1, figsize=(5, 9.5))
     plt.subplots_adjust(wspace=0.38)
 
     for ax, (row, title) in zip(axes, [(low, "Low skew"), (high, "High skew")]):
