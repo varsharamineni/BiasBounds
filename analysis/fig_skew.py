@@ -126,7 +126,7 @@ def plot(results_path, save_path=None):
         ax.axvline(mid,  color=MID_COLOR,  lw=2,   zorder=4, ls="--",
                    label=f"Midpoint = {mid:.3f}  (|err| = {abs(mid-true):.3f})")
 
-        ax.set_xlabel("Disparate Impact (DI)", fontsize=11)
+        ax.set_xlabel("Disparate Impact (DI)" if ax is axes[1] else "", fontsize=11)
         ax.set_ylabel("Probability" if ax is axes[0] else "", fontsize=11)
         ax.set_title(f"{title} ",
                      fontsize=11, fontweight="bold")
@@ -140,7 +140,7 @@ def plot(results_path, save_path=None):
                       label="Interval midpoint"),
     ], fontsize=10, loc="lower center", ncol=4, frameon=False,
        bbox_to_anchor=(0.5, -0.05))
-    plt.subplots_adjust(bottom=0.03)
+    plt.subplots_adjust(bottom=0.06)
 
     if save_path:
         os.makedirs(os.path.dirname(save_path) or ".", exist_ok=True)
