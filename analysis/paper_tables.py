@@ -34,9 +34,19 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import numpy as np
 import pandas as pd
 
-KL_BINS   = [0, 0.01, 0.05, 0.1, 0.3, 0.5, np.inf]
-KL_LABELS = ["0–0.01", "0.01–0.05", "0.05–0.1",
-              "0.1–0.3",  "0.3–0.5",  "0.5+"]
+KL_BINS = [0, 0.01, 0.05, 0.1, 0.3, 0.5, 1.0, 2.5, np.inf]
+
+KL_LABELS = [
+    "0–0.01",
+    "0.01–0.05",
+    "0.05–0.1",
+    "0.1–0.3",
+    "0.3–0.5",
+    "0.5–1.0",
+    "1.0–2.5",
+    "2.5+"
+]
+
 LABEL_ORDER = ["consistent", "low", "medium", "high"]
 
 
@@ -75,6 +85,7 @@ def table1_general_stats(df: pd.DataFrame) -> pd.DataFrame:
                 "Std error":       round(float(signed.std()),  4),
                 "|error| mean":    round(float(signed.abs().mean()), 4),
                 "Interval width":  round(float(width.mean()), 4),
+                "Interval width std":  round(float(width.std()), 4),
                 "Coverage %":      round(float(sub[f"{metric}_covered"].mean()*100), 1),
             })
     return pd.DataFrame(rows).set_index(["Level", "Metric"])
