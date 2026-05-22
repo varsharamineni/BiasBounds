@@ -1,0 +1,6 @@
+Level,n,FS DD cov %,FS DI cov %,Tight DD cov %,Kallus DD cov %
+Consistent,3000,99.8,99.8,100.0,100.0
+Low,6000,93.5,93.4,93.8,n/a
+Medium,6000,80.9,80.8,81.2,n/a
+High,6000,55.9,56.2,56.6,n/a
+All,21000,80.1,80.1,80.4,100.0

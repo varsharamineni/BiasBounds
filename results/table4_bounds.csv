@@ -1,0 +1,4 @@
+Method,n,Median width,Mean width,Midpoint |err|,Coverage %,Width reduction
+Kallus baseline,3000,1.1265,1.093,0.1111,100.0,—
+Tight Fréchet,3000,0.3273,0.3711,0.0762,100.0,71%
+Feasible set,3000,0.3229,0.3671,0.0763,99.8,71%

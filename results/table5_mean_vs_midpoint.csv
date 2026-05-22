@@ -1,0 +1,5 @@
+Subset,n,Mean skewness,FS mean |err|,Midpoint |err|,FS mean better %
+All scenarios,21000,0.354,0.2874,0.3834,58.1
+Low skew (|s|<0.3),12109,0.145,0.2053,0.2082,53.3
+High skew (|s|>0.3),8891,0.638,0.3992,0.622,64.6
+Very high skew (|s|>0.5),4629,0.868,0.4941,0.8978,69.4
